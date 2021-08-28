@@ -15,7 +15,7 @@
       <%= form_with url: search_path, method: :get, local: true do |f| %>
         <%= f.select :year, [["2014","2014"], ["2015", "2015"], ["2016", "2016"], ["2017", "2017"], ["2018", "2018"], ["2019", "2019"], ["2020", "2020"], ["2021", "2021"]], { include_blank: '年を選択'}, { class: 'form-control' , required: true } %>
         <%= f.select :season, [["冬（1〜3月）", "1"], ["春（4〜6月）", "2"], ["夏（7〜9月）", "3"], ["秋（10〜12月）", "4"]], { include_blank: '季節を選択'}, { class: 'form-control' , required: true } %>
-        <%= f.submit "入力" %>
+        <%= f.submit "検索" %>
       <% end %>
       <%= yield %>
     </div>
