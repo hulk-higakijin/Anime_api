@@ -1,4 +1,4 @@
-<% if year = params[:year] && season = params[:season] %>
+<% if @result %>
   <% i = 0 %>
   <% while i < @result.length %>
     <p>タイトル：　<%= @result[i]["title"] %></p>
@@ -6,4 +6,6 @@
     <% i += 1 %>
     <br>
   <% end %>
+<% else %>
+  <p>データがありません。</p>
 <% end %>
