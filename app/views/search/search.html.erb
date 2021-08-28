@@ -1,10 +1,23 @@
 <% if @result %>
   <% i = 0 %>
+  <h2><%= @year %>年 <%= @season %>シーズン</h2>
+  <hr>
   <% while i < @result.length %>
     <p>タイトル：　<%= @result[i]["title"] %></p>
-    <p>公式URL：　<%= @result[i]["public_url"] %></p>
+    <p>公式URL：　<%= link_to @result[i]["public_url"], @result[i]["public_url"], target: :_blank %></p>
+    <p>Twitter:　<%= link_to "Twitter", "https://twitter.com/#{@result[i]['twitter_account']}", target: :_blank %></p>
+    <p>ハッシュタグ: <%= link_to "#" + @result[i]['twitter_hash_tag'], "https://twitter.com/hashtag/#{@result[i]['twitter_hash_tag']}", target: :_blank %></p>
+    <p>
+      性別：
+      <% if @result[i]["sex"] == 0 %>
+        男性向け
+      <% elsif @result[i]["sex"] == 1 %>
+        女性向け
+      <% end %>
+    </p>
     <% i += 1 %>
     <br>
+    <hr>
   <% end %>
 <% else %>
   <p>データがありません。</p>
