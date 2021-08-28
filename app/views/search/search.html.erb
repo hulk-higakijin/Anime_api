@@ -2,23 +2,21 @@
   <% i = 0 %>
   <h2><%= @year %>年 <%= @season %>シーズン</h2>
   <hr>
-  <% while i < @result.length %>
-    <p>タイトル：　<%= @result[i]["title"] %></p>
-    <p>公式URL：　<%= link_to @result[i]["public_url"], @result[i]["public_url"], target: :_blank %></p>
-    <p>Twitter:　<%= link_to "Twitter", "https://twitter.com/#{@result[i]['twitter_account']}", target: :_blank %></p>
-    <p>ハッシュタグ: <%= link_to "#" + @result[i]['twitter_hash_tag'], "https://twitter.com/hashtag/#{@result[i]['twitter_hash_tag']}", target: :_blank %></p>
-    <p>
-      性別：
-      <% if @result[i]["sex"] == 0 %>
-        男性向け
-      <% elsif @result[i]["sex"] == 1 %>
-        女性向け
-      <% end %>
-    </p>
-    <% i += 1 %>
-    <br>
-    <hr>
-  <% end %>
+  <div class="row">
+    <% while i < @result.length %>
+      <div class="col-lg-2 col-md-4 col-xs-6">
+        <div class="card">
+          <img src="assets/Chess.jpeg" class="card-img-top" alt="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><%= @result[i]["title"] %></h5>
+            <%# <p class="card-text"></p> %>
+            <p class="card-text"><small class="text-muted"><%= "#" + @result[i]['twitter_hash_tag'] %></small></p>
+          </div>
+        </div>
+      </div>
+      <% i += 1 %>
+    <% end %>
+  </div>
 <% else %>
   <p>データがありません。</p>
 <% end %>
