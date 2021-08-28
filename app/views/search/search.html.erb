@@ -1,0 +1,9 @@
+<% if year = params[:year] && season = params[:season] %>
+  <% i = 0 %>
+  <% while i < @result.length %>
+    <p>タイトル：　<%= @result[i]["title"] %></p>
+    <p>公式URL：　<%= @result[i]["public_url"] %></p>
+    <% i += 1 %>
+    <br>
+  <% end %>
+<% end %>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AnimeApi</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.number_field :year, placeholder:"年を入力", min: 2014, max: 2021 %>
+        <%= f.number_field :season, placeholder:"シーズンを入力", min: 1, max: 4 %>
+        <%= f.submit "入力" %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
