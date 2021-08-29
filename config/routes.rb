@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   
   resources :lists, except: [:show]
   get "/:year/:season_num/:anime_id" => "lists#show"
+  get "/now" => "search#now"
+
 end
