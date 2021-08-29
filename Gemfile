@@ -60,3 +60,5 @@ gem 'pry-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
+
+gem 'devise'
